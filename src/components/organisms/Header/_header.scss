@@ -1,0 +1,50 @@
+@import "../../../themes/default/scss/common";
+
+.header {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: em($header-height-m);
+	background: $off-black;
+
+	&__inner {
+		display: flex;
+		flex-direction: row;
+		height: inherit;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 em(15) 0 0;
+	}
+
+	&__logo {
+
+	}
+
+	.hamburger {
+		cursor: pointer;
+	}
+
+	&__menu {
+		height: em($header-height-m);
+		width: 100%;
+		background: $light-grey;
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 2;
+	}
+
+	&__overlay {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: calc(100vh + #{em($header-height-m)});
+		width: 100vw;
+		background: $black;
+		z-index: 1;
+		visibility: hidden;
+		opacity: 0;
+		transition: 0.5s timing(ease-out-quad) 0s;
+	}
+}
