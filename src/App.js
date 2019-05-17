@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import 'sanitize.css';
+import './themes/v1/scss/style.scss';
+
+import Header from './components/organisms/Header';
+import Dashboard from './pages/Dashboard';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<React.Fragment className="App">
+			<Header/>
+			<main>
+				<Switch>
+					<Route exact path="/" component={Dashboard} />
+				</Switch>
+			</main>
+		</React.Fragment>
+	);
 }
 
 export default App;
