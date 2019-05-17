@@ -8,7 +8,7 @@ import Dashboard from './pages/Dashboard';
 
 function App() {
 	return (
-		<React.Fragment className="App">
+		<React.Fragment>
 			<Header/>
 			<main>
 				<Switch>

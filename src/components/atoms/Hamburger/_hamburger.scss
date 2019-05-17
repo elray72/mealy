@@ -1,31 +1,44 @@
 @import "../../../themes/v1/scss/common";
 
-.nav {
+.hamburger {
+	background: transparent;
+	height: em($header-height-m);
+	width: em($header-height-m);
+	margin: 0;
+	padding: em(15);
+	border: 0;
 	display: flex;
-	flex-direction: row;
-	width: 100%;
-
-	&__list {
-		margin: 0 0 0 auto;
-		padding: 0;
-		display: flex;
-		flex-direction: row;
+	flex-shrink: 0;
+	align-items: center;
+	&:focus {
+		outline: 0;
 	}
 
-	&__item {
-		height: inherit;
+	&__icon {
+		height: em(2);
+		width: 100%;
+		background: $white;
+		position: relative;
+
+		&:before, &:after {
+			content: ' ';
+			display: block;
+			background: $white;
+			width: 100%;
+			height: em(2);
+			position: absolute;
+		}
+
+		&:before {
+			top: em(-6);
+		}
+
+		&:after {
+			bottom: em(-6);
+		}
 	}
 
-	&__link {
-		font-size: em(14);
-		font-family: $font-heading;
-		font-weight: 400;
-		text-transform: uppercase;
-		text-decoration: none;
-		color: $grey;
-		padding: 0 em(15, 14);
-		height: 100%;
-		display: flex;
-		align-items: center;
+	&__label {
+		display: none;
 	}
 }
