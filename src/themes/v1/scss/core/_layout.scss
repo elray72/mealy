@@ -1,0 +1,35 @@
+/** ====================================================================================================================
+// Layout
+// ================================================================================================================== */
+
+@import "../common";
+
+body {
+	overflow-x: hidden;
+	margin: 0;
+	font-family: $font-text, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar {
+	width: em($header-height-m);
+	background: $light-grey;
+}
+
+.main {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-grow: 1;
+}
+
+.section {
+	height: 100vh;
+}
