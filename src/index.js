@@ -5,7 +5,6 @@ import { ConnectedRouter } from 'connected-react-router'
 import configureStore, { history } from './store/configureStore';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './index.css';
 
 const store = configureStore({});
 
@@ -15,7 +14,7 @@ render(
 			<App />
 		</ConnectedRouter>
 	</Provider>,
-	document.getElementById('root')
+	document.getElementById('page')
 );
 
 // If you want your app to work offline and load faster, you can change

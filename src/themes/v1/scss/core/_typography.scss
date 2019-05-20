@@ -12,14 +12,13 @@ body {
 
 h1, h2, h3, h4, h5 {
 	font-family: $font-heading, sans-serif;
-	font-weight: 700;
+	font-weight: 500;
 	margin: 0;
 	clear: both;
 }
 
 h1 {
 	font-size: em(24);
-	font-weight: 400;
 	margin-bottom: em(16, 24);
 }
 
