@@ -7,11 +7,11 @@ import './_plan-picker.scss';
 
 const PlanPicker = (props) => {
 	if (!props.isVisible) return '';
-	const componentClass = classNames(props.className, 'dummy');
+	const componentClass = classNames(props.className, 'plans');
 
 	return (
 		<div className={componentClass}>
-			<h2>BlankPanel</h2>
+			<h2>Plan Picker</h2>
 			<p>{props.page}, {props.section}</p>
 		</div>
 	);

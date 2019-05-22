@@ -12,8 +12,11 @@ export const views = (state = initialState, action) => {
 	switch (action.type) {
 
 		case TOGGLE_VIEW:
-			state[action.payload.page][action.payload.section] = action.payload.view;
-			return state;
+			let newState = {
+				...state
+			};
+			newState[action.page][action.section] = action.view;
+			return newState;
 
 		default:
 			return state;
@@ -22,7 +25,9 @@ export const views = (state = initialState, action) => {
 
 export const isViewVisible = (state = initialState, props) => {
 	const { page, section, name } = props;
-	return state.views[page][section] === name;
+	if (state.views[page] !== undefined) {
+		return state.views[page][section] === name;
+	}
 };
 
 export default views;
