@@ -5,14 +5,24 @@ import classNames from 'classnames';
 import { isViewVisible } from '../../../store/reducers/views';
 import './_recipe-picker.scss';
 
-const RecipePicker = (props) => {
+const RecipePicker = (props) => { console.log('RecipePicker', props);
 	if (!props.isVisible) return '';
 	const componentClass = classNames(props.className, 'recipes');
 
 	return (
 		<div className={componentClass}>
-			<h2>Recipe picker</h2>
-			<p>{props.page}, {props.section}</p>
+			<h2>Recipes</h2>
+			<p>{props.placeholder}</p>
+
+			<div>
+				<div className="" id="recipe_a">Recipe A</div>
+				<div className="" id="recipe_a">Recipe A</div>
+				<div className="" id="recipe_a">Recipe A</div>
+				<div className="" id="recipe_a">Recipe A</div>
+				<div className="" id="recipe_a">Recipe A</div>
+				<div className="" id="recipe_a">Recipe A</div>
+			</div>
+
 		</div>
 	);
 };
@@ -20,14 +30,12 @@ const RecipePicker = (props) => {
 RecipePicker.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
-	page: PropTypes.string,
-	section: PropTypes.string,
-	name: PropTypes.string,
+	placeholder: PropTypes.string,
 };
 
 const mapStateToProps = (state, props) => {
-	props.name = 'RecipePicker';
 	return {
+		...props,
 		recipes: [],
 		isVisible: isViewVisible(state, props),
 	};

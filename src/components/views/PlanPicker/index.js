@@ -5,14 +5,14 @@ import classNames from 'classnames';
 import { isViewVisible } from '../../../store/reducers/views';
 import './_plan-picker.scss';
 
-const PlanPicker = (props) => {
+const PlanPicker = (props) => { console.log('PlanPicker', props);
 	if (!props.isVisible) return '';
 	const componentClass = classNames(props.className, 'plans');
 
 	return (
 		<div className={componentClass}>
 			<h2>Plan Picker</h2>
-			<p>{props.page}, {props.section}</p>
+			<p>{props.placeholder}</p>
 		</div>
 	);
 };
@@ -20,15 +20,13 @@ const PlanPicker = (props) => {
 PlanPicker.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
-	page: PropTypes.string,
-	section: PropTypes.string,
-	name: PropTypes.string,
+	placeholder: PropTypes.string,
 };
 
 const mapStateToProps = (state, props) => {
 	props.name = 'PlanPicker';
 	return {
-		recipes: [],
+		plans: {},
 		isVisible: isViewVisible(state, props),
 	};
 };

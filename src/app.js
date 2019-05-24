@@ -7,7 +7,7 @@ import './themes/v1/scss/style.scss';
 import Header from './components/organisms/Header';
 import Sidebar from "./components/organisms/Sidebar";
 
-// Pages
+// PAGES
 import Dashboard from './components/pages/Dashboard';
 import Recipe from './components/pages/Recipe';
 

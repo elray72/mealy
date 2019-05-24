@@ -1,8 +1,6 @@
 import { TOGGLE_VIEW } from '../actionTypes';
 
-export const toggleView = (page, section, view) => ({
+export const toggleView = (target) => ({
 	type: TOGGLE_VIEW,
-	page,
-	section,
-	view,
+	placeholder: target
 });

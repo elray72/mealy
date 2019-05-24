@@ -1,21 +1,29 @@
 import { TOGGLE_VIEW } from '../actionTypes';
-import { Views } from '../constants';
+import { VIEWS } from '../constants';
 
 const initialState = {
 	Dashboard: {
-		Left: Views.PLAN_PICKER,
-		Right: Views.SHOPPING_LIST,
+		Left: VIEWS.PlanPicker,
+		Right: VIEWS.ShoppingList,
 	},
 };
 
-export const views = (state = initialState, action) => {
-	switch (action.type) {
+const mapPlaceholderToView = (placeholder) => {
+	const p = placeholder.split('.');
+	return {
+		page: p[0],
+		section: p[1],
+		view: p[2],
+	}
+};
 
+export const views = (state = initialState, action) => {
+	let newState = { ...state };
+
+	switch (action.type) {
 		case TOGGLE_VIEW:
-			let newState = {
-				...state
-			};
-			newState[action.page][action.section] = action.view;
+			const { page, section, view } = mapPlaceholderToView(action.placeholder);
+			newState[page][section] = view;
 			return newState;
 
 		default:
@@ -24,9 +32,10 @@ export const views = (state = initialState, action) => {
 };
 
 export const isViewVisible = (state = initialState, props) => {
-	const { page, section, name } = props;
+	const { page, section, view } = mapPlaceholderToView(props.placeholder);
+
 	if (state.views[page] !== undefined) {
-		return state.views[page][section] === name;
+		return state.views[page][section] === view;
 	}
 };
 

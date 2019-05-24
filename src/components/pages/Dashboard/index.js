@@ -3,7 +3,6 @@
  // ================================================================================================================= */
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Pages, Sections, Views } from '../../../store/constants';
 import './_dashboard.scss';
 
 // Components
@@ -29,13 +28,16 @@ export default class Dashboard extends React.Component {
 				</div>
 				<div className="dashboard__body">
 					<section className="dashboard__left">
-						<ViewButton page={Pages.DASHBOARD} section={Sections.LEFT} view={Views.RECIPE_PICKER} text="Recipes" />
-						<ViewButton page={Pages.DASHBOARD} section={Sections.LEFT} view={Views.PLAN_PICKER} text="My plan" />
-						<RecipePicker page={Pages.DASHBOARD} section={Sections.LEFT} />
-						<PlanPicker page={Pages.DASHBOARD} section={Sections.LEFT} />
+						<ViewButton text="Recipes" target="Dashboard.Left.RecipePicker" />
+						<ViewButton text="My plan" target="Dashboard.Left.PlanPicker" />
+						<RecipePicker placeholder="Dashboard.Left.RecipePicker" />
+						<PlanPicker placeholder="Dashboard.Left.PlanPicker" />
 					</section>
 					<section className="dashboard__right">
-						<ShoppingList page={Pages.DASHBOARD} section={Sections.RIGHT} />
+						<ViewButton text="My plan" target="Dashboard.Right.PlanPicker" />
+						<ViewButton text="Shopping List" target="Dashboard.Right.ShoppingList" />
+						<PlanPicker placeholder="Dashboard.Right.PlanPicker" />
+						<ShoppingList placeholder="Dashboard.Right.ShoppingList" />
 					</section>
 				</div>
 			</div>

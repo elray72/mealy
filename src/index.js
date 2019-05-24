@@ -6,6 +6,7 @@ import configureStore, { history } from './store/configureStore';
 import App from './app';
 import * as serviceWorker from './serviceWorker';
 
+// Configure store
 const store = configureStore({});
 
 render(
