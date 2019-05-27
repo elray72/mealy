@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { isViewVisible } from '../../../store/reducers/views';
-import { getRecipes } from '../../../store/reducers/recipes';
+import { fetchRecipes } from '../../../store/actions/recipes';
 import './_recipe-picker.scss';
 
 const RecipePicker = (props) => { console.log('RecipePicker', props);
 	if (!props.isVisible) return null;
 	const componentClass = classNames(props.className, 'recipes');
-console.log(props);
+	console.log(props);
+
 	return (
 		<div className={componentClass}>
 			<h2>Recipes</h2>
@@ -36,9 +37,10 @@ RecipePicker.propTypes = {
 };
 
 const mapStateToProps = (state, props) => {
+	console.log(state);
 	return {
 		...props,
-		recipes: getRecipes(),
+		recipes: fetchRecipes(state),
 		isVisible: isViewVisible(state, props),
 	};
 };
