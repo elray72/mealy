@@ -1,7 +1,7 @@
-import _options from './recipes.json';
+import recipesJson from './recipes.json';
 
 const TIMEOUT = 100;
 
 export default {
-	get: (cb, timeout) => setTimeout(() => cb(_options), timeout || TIMEOUT),
+	getRecipes: (cb, timeout) => setTimeout(() => cb(recipesJson), timeout || TIMEOUT),
 };

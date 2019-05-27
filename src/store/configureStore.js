@@ -1,7 +1,8 @@
 import { createBrowserHistory } from 'history';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
-import logger from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
+import loggerMiddleware from 'redux-logger';
 import rootReducer from './reducers/index';
 
 export const history = createBrowserHistory();
@@ -13,7 +14,8 @@ export default function configureStore(initialState) {
 		compose(
 			applyMiddleware(
 				routerMiddleware(history),
-				logger,
+				thunkMiddleware,
+				loggerMiddleware,
 			),
 		),
 	);

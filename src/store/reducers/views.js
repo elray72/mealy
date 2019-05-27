@@ -3,7 +3,7 @@ import { VIEWS } from '../constants';
 
 const initialState = {
 	Dashboard: {
-		Left: VIEWS.PlanPicker,
+		Left: VIEWS.RecipePicker,
 		Right: VIEWS.ShoppingList,
 	},
 };

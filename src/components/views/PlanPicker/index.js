@@ -6,7 +6,7 @@ import { isViewVisible } from '../../../store/reducers/views';
 import './_plan-picker.scss';
 
 const PlanPicker = (props) => { console.log('PlanPicker', props);
-	if (!props.isVisible) return '';
+	if (!props.isVisible) return null;
 	const componentClass = classNames(props.className, 'plans');
 
 	return (
@@ -24,8 +24,8 @@ PlanPicker.propTypes = {
 };
 
 const mapStateToProps = (state, props) => {
-	props.name = 'PlanPicker';
 	return {
+		...props,
 		plans: {},
 		isVisible: isViewVisible(state, props),
 	};

@@ -1,15 +1,19 @@
 import recipes from '../../api/recipesApi';
-import { GET_RECIPES } from '../actionTypes';
+import { REQUEST_RECIPES, RECEIVE_RECIPES } from '../actionTypes';
 
+const requestRecipes = () => ({
+	type: REQUEST_RECIPES,
+});
 
+const receiveRecipes = (json) => ({
+	type: REQUEST_RECIPES,
+	recipes: json,
+	receivedAt: Date.now()
+});
 
-export const getRecipes = () => (dispatch) => {
-	recipes.get((options) => {
-		dispatch(getOption(options));
+export const fetchRecipes = () => (dispatch) => {
+	dispatch(requestRecipes());
+	recipes.getRecipes((json) => {
+		dispatch(receiveRecipes(json));
 	});
 };
-
-export const getRecipes = (target) => ({
-	type: GET_RECIPES,
-	placeholder: target
-});

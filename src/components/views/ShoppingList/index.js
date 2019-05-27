@@ -6,7 +6,7 @@ import { isViewVisible } from '../../../store/reducers/views';
 import './_shopping-list.scss';
 
 const ShoppingList = (props) => { console.log('ShoppingList', props);
-	if (!props.isVisible) return '';
+	if (!props.isVisible) return null;
 	const componentClass = classNames(props.className, 'shopping');
 
 	return (
@@ -25,6 +25,7 @@ ShoppingList.propTypes = {
 
 const mapStateToProps = (state, props) => {
 	return {
+		...props,
 		shoppingList: [],
 		isVisible: isViewVisible(state, props),
 	};
