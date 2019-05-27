@@ -6,7 +6,7 @@ const requestRecipes = () => ({
 });
 
 const receiveRecipes = (json) => ({
-	type: REQUEST_RECIPES,
+	type: RECEIVE_RECIPES,
 	recipes: json,
 	receivedAt: Date.now()
 });
