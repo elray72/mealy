@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import { isViewVisible } from '../../../store/reducers/views';
 import './_plan-picker.scss';
 
-const PlanPicker = (props) => { console.log('PlanPicker', props);
-	if (!props.isVisible) return null;
+const PlanPicker = (props) => {
+	if (!props.isVisible) return null; //console.log('PlanPicker', props);
 	const componentClass = classNames(props.className, 'plans');
 
 	return (

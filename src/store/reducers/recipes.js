@@ -1,10 +1,10 @@
-//import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 import { REQUEST_RECIPES, RECEIVE_RECIPES, FETCH_RECIPES } from '../actionTypes';
 
 const initialState = {
 	isFetching: false,
-	didInvalidate: false,
-	recipes: [],
+	success: false,
+	items: [],
 };
 
 export const recipes = (state = initialState, action) => {
@@ -13,20 +13,19 @@ export const recipes = (state = initialState, action) => {
 		case REQUEST_RECIPES:
 			return Object.assign({}, state, {
 				isFetching: true,
-				didInvalidate: false
+				success: false
 			});
 
 		case RECEIVE_RECIPES:
 			return Object.assign({}, state, {
 				isFetching: false,
-				didInvalidate: false
+				success: true
 			});
 
 		case FETCH_RECIPES:
 			return Object.assign({}, state, {
 				isFetching: false,
-				didInvalidate: false,
-				recipes: action.recipes,
+				items: action.recipes,
 				lastUpdated: action.receivedAt
 			});
 
@@ -35,29 +34,34 @@ export const recipes = (state = initialState, action) => {
 	}
 };
 
-export default recipes;
+export const recipes2 = (state = initialState, action) => {
+	switch (action.type) {
 
-//
-// import { ADD_RECIPE, REMOVE_RECIPE } from '../actionTypes';
-//
-// const recipes = (state, action) => {
-// 	switch (action.type) {
-// 		case ADD_RECIPE:
-// 			return {
-// 				...state,
-// 				added: true,
-// 			};
-// 		case REMOVE_RECIPE:
-// 			return {
-// 				...state,
-// 				added: false,
-// 			};
-// 		default:
-// 			return state;
-// 	}
-// };
-//
-// export const getRecipes = (state) => {
-// 	console.log(state);
-// 	return state;
-// };
+		case REQUEST_RECIPES:
+			return Object.assign({}, state, {
+				isFetching: true,
+				success: false
+			});
+
+		case RECEIVE_RECIPES:
+			return Object.assign({}, state, {
+				isFetching: false,
+				success: true
+			});
+
+		case FETCH_RECIPES:
+			return Object.assign({}, state, {
+				isFetching: false,
+				items: action.recipes,
+				lastUpdated: action.receivedAt
+			});
+
+		default:
+			return state;
+	}
+};
+
+export default combineReducers({
+	recipes,
+	recipes2
+});

@@ -8,15 +8,7 @@ const initialState = {
 	},
 };
 
-const mapPlaceholderToView = (placeholder) => {
-	const p = placeholder.split('.');
-	return {
-		page: p[0],
-		section: p[1],
-		view: p[2],
-	}
-};
-
+// REDUCERS
 export const views = (state = initialState, action) => {
 	let newState = { ...state };
 
@@ -31,12 +23,22 @@ export const views = (state = initialState, action) => {
 	}
 };
 
+// METHODS
+const mapPlaceholderToView = (placeholder) => {
+	const p = placeholder.split('.');
+	return {
+		page: p[0],
+		section: p[1],
+		view: p[2],
+	}
+};
+
+// EXPORTS
+export default views;
+
 export const isViewVisible = (state = initialState, props) => {
 	const { page, section, view } = mapPlaceholderToView(props.placeholder);
-
 	if (state.views[page] !== undefined) {
 		return state.views[page][section] === view;
 	}
 };
-
-export default views;

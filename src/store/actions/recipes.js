@@ -12,8 +12,10 @@ const receiveRecipes = (json) => ({
 });
 
 export const fetchRecipes = () => (dispatch) => {
+	console.log('fetchRecipes');
 	dispatch(requestRecipes());
 	recipes.getRecipes((json) => {
+		console.log(json);
 		dispatch(receiveRecipes(json));
 	});
 };

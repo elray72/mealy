@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { isViewVisible } from '../../../store/reducers/views';
 import './_shopping-list.scss';
 
-const ShoppingList = (props) => { console.log('ShoppingList', props);
+const ShoppingList = (props) => {
 	if (!props.isVisible) return null;
 	const componentClass = classNames(props.className, 'shopping');
 

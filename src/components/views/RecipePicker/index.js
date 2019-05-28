@@ -6,10 +6,9 @@ import { isViewVisible } from '../../../store/reducers/views';
 import { fetchRecipes } from '../../../store/actions/recipes';
 import './_recipe-picker.scss';
 
-const RecipePicker = (props) => { console.log('RecipePicker', props);
-	if (!props.isVisible) return null;
+const RecipePicker = (props) => {
+	if (!props.isVisible) return null; //console.log('PlanPicker', props);
 	const componentClass = classNames(props.className, 'recipes');
-	console.log(props);
 
 	return (
 		<div className={componentClass}>
@@ -37,7 +36,10 @@ RecipePicker.propTypes = {
 };
 
 const mapStateToProps = (state, props) => {
+
 	console.log(state);
+	//const { recipes, placeholder }
+
 	return {
 		...props,
 		recipes: fetchRecipes(state),

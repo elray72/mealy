@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import configureStore, { history } from './store/configureStore';
 import App from './app';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './utils/cra/serviceWorker';
 
 // Configure store
 const store = configureStore({});
